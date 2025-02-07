@@ -1,9 +1,17 @@
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
-import { mergeArrays, mergeMultipleArrays } from './api'   
+import { ApiService } from './api'
 
-console.log(mergeArrays([1, 2, 3], [4, 5, 6]))
-console.log(mergeMultipleArrays([1, 2, 3], [4, 5, 6], [7, 8, 9]))
+// 全局挂载
+const app = createApp(App)
+app.config.globalProperties.$api = ApiService
 
-createApp(App).mount('#app')
+// 声明类型扩展
+declare module '@vue/runtime-core' {
+  interface ComponentCustomProperties {
+    $api: typeof ApiService
+  }
+}
+
+app.mount('#app')
