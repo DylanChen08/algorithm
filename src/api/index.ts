@@ -1,12 +1,14 @@
 import { mergeArrays, mergeMultipleArrays } from './merge-array';
 import { subarraySum } from './k-sum-sub-array';
+import { productExceptSelf } from './product-except-self';
 
 // 统一导出对象，便于管理和使用
 export const ApiService = {
   array: {
     // merge: mergeArrays,
     // mergeMultiple: mergeMultipleArrays,
-    findKSumSubArrays: subarraySum,
+    // findKSumSubArrays: subarraySum,
+    productExceptSelf: productExceptSelf,
     // 后续添加其他数组相关方法...
   },
   // 可以按功能模块添加其他服务
